@@ -19,7 +19,6 @@ public class SignUp extends JFrame{
     private JLabel JLPassword;
     private JPanel JPSignUp;
     private JLabel JLCheck;
-    private JTextField TFCheck;
 
     public SignUp(){
         // this will allow us to use the components inside the Icon.png form.
@@ -56,7 +55,6 @@ public class SignUp extends JFrame{
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 Login login = new Login();
-                login.setVisible(true);
                 setVisible(false);
                 dispose();
             }

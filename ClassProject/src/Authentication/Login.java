@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Login extends JFrame {
-    public JPanel JPLogin;
+    private JPanel JPLogin;
     private JLabel JLSchoolName;
     private JLabel JLCheck;
     private JTextField TFRegistration;
