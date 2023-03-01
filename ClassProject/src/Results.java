@@ -1,5 +1,3 @@
-package Student_Details;
-
 import javax.swing.*;
 
 public class Results extends JFrame {
