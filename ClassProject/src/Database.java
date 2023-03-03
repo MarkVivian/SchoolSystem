@@ -1,6 +1,12 @@
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
+    // THESE WILL MAKE IT EASIER TO GET THE DATA FROM THE DATABASE.
+    List<String> ValueDatabase = new ArrayList<>();
+
+    // THESE ARE FOR THE DATABASE CONNECTION
     private Connection conn;
 
     private PreparedStatement pstmt;
@@ -8,7 +14,12 @@ public class Database {
     private DatabaseMetaData dbm;
 
     private ResultSet rs;
-    Database(String tableName, String[] columnNames, Object[] values){
+
+    public Database(){
+        this.ConnectToDatabase();
+    }
+
+    public void DatabaseWrite(String tableName, String[] columnNames, Object[] values){
         if(this.ConnectToDatabase()){
             System.out.println("the connection is valid");
             this.getTables();
@@ -155,11 +166,34 @@ public class Database {
                     String columnName = metaData.getColumnName(i);
                     Object value = rs.getObject(i);
                     System.out.println(columnName + ": " + value);
+                    ValueDatabase.add(value.toString());
                 }
             }
             rs.close();
         }catch(Exception e1){
-            System.out.println("an error occurred when getting data from a table");
+            System.out.println("an error occurred when getting data from " + table);
+        }
+    }
+
+    public void getDataById(String table, String idType, int Id){
+        try{
+            String sql = "SELECT * FROM " + table + " WHERE " + idType + "=" + Id;
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            ResultSetMetaData metaData = rs.getMetaData();
+            int columnCount = metaData.getColumnCount();
+            while (rs.next()) {
+                // Retrieving values from the current row dynamically
+                for (int i = 1; i <= columnCount; i++) {
+                    String columnName = metaData.getColumnName(i);
+                    Object value = rs.getObject(i);
+                    System.out.println(columnName + ": " + value);
+                    ValueDatabase.add(value.toString());
+                }
+            }
+            rs.close();
+        }catch(Exception e1){
+            System.out.println("an error occurred when getting data from " + table);
         }
     }
 }

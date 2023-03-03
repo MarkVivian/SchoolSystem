@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        StudentDetails st = new StudentDetails();
+        //Login login = new Login();
+        StudentDetails st = new StudentDetails(2);
     }
 }

@@ -15,6 +15,7 @@ public class Library extends JFrame {
     public void WriteLibrary(){
         String[] ColumnName = {"StudentName"};
         Object[] values = {"Mark Vivian"};
-        Database Data = new Database("library", ColumnName, values);
+        Database Data = new Database();
+        Data.DatabaseWrite("library", ColumnName, values);
     }
 }
