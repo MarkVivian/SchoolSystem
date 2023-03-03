@@ -10,15 +10,15 @@ CREATE TABLE LoginDetails(
 
 INSERT INTO LoginDetails VALUES(
 	DEFAULT,
-	"EB1/1234/12",
+	"EB1.1234.12",
 	"1234"
 ),(
 	DEFAULT,
-	"EB2/5678/34",
+	"EB2.5678.34",
 	"5678"
 ),(
 	DEFAULT,
-	"EB3/9123/34",
+	"EB3.9123.34",
 	"9123"
 ),(
 	DEFAULT,
@@ -40,17 +40,17 @@ CREATE TABLE StudentDetails(
 INSERT INTO StudentDetails VALUES(
 	1,
 	"John Doe",
-    "EB1/1234/12",
+    "EB1.1234.12",
     "Computer Science"
 ),(
 	2,
 	"Martin Luther",
-    "EB2/5678/34",
+    "EB2.5678.34",
     "Teaching"
 ),(
 	3,
 	"Barack Obama",
-    "EB3/9123/34",
+    "EB3.9123.34",
     "Architecture"
 ),(
 	4,
@@ -167,4 +167,46 @@ DEFAULT,
 "Hospitality",
 "HOP 987",
 987
+),
+(
+DEFAULT,
+1,
+"Propability",
+"MATH 134",
+134
+),(
+DEFAULT,
+2,
+"HIV.AIDS",
+"ZOOL 383",
+383
+),(
+DEFAULT,
+3,
+"Computer networking",
+"COSC 111",
+111
+),(
+DEFAULT,
+4,
+"Medicine",
+"MED 222",
+222
+);
+
+CREATE TABLE BookInfo(
+	BookId INT AUTO_INCREMENT PRIMARY KEY,
+    BookTitle VARCHAR(30),
+    BookEdition VARCHAR(30),
+    BookVersion VARCHAR(30),
+	yearPublished VARCHAR(30)
+);
+
+CREATE TABLE LibraryDetails(
+	TitleId INT PRIMARY KEY,
+	FOREIGN KEY(TitleId) REFERENCES BookInfo(BookId) ON DELETE CASCADE ON UPDATE CASCADE,
+    TitleCount INT,
+    Borrowed BOOLEAN,
+    Returned BOOLEAN,
+    StudentId INT
 );
