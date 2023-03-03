@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +17,10 @@ public class StudentDetails extends JFrame {
     private JLabel EnterProg;
     private JButton libraryButton;
     private JButton resultsButton;
-    private JButton button3;
-    private JButton button4;
-    private JButton button1;
-    private JButton button2;
+    private JButton notAvailable2Button;
+    private JButton notAvailable3Button;
+    private JButton LogOut;
+    private JButton notAvailableButton;
     private JLabel Course1;
     private JLabel Course2;
     private JLabel Course3;
@@ -32,7 +34,39 @@ public class StudentDetails extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         StudentInfo(id);
-        CoursenameInfo(id);
+        CourseNameInfo(id);
+        LogOut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Login log = new Login();
+                log.setVisible(true);
+                setVisible(false);
+            }
+        });
+
+
+        libraryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+            }
+        });
+        resultsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Results res = new Results(id);
+                res.setVisible(true);
+                setVisible(false);
+            }
+        });
+        libraryButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Library lib = new Library(id);
+                lib.setVisible(true);
+                setVisible(false);
+            }
+        });
     }
     public void StudentInfo(int id){
         dat.getDataById("StudentDetails", "StudentId", id);
@@ -44,12 +78,13 @@ public class StudentDetails extends JFrame {
         }
     }
 
-    public void CoursenameInfo(int id){
+    public void CourseNameInfo(int id){
         dat.getDataById("StudentCourse", "StudentId", id);
         for(int i = 0; i < dat.ValueDatabase.size(); i += 5){
             System.out.println(dat.ValueDatabase.get(i+1));
             CourseName.add(dat.ValueDatabase.get(i+1));
         }
+        CourseName.remove(0);
         for (int i = 0; i < CourseName.size(); i += 5) {
             Course1.setText(CourseName.get(i));
             Course2.setText(CourseName.get(i + 1));

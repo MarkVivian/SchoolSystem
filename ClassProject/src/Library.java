@@ -3,7 +3,7 @@ import javax.swing.*;
 public class Library extends JFrame {
     private JPanel JPLibrary;
 
-    public Library(){
+    public Library(int id){
         setTitle("Library");
         setSize(450, 320);
         setContentPane(JPLibrary);

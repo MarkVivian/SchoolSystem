@@ -3,7 +3,7 @@ import javax.swing.*;
 public class Results extends JFrame {
     private JPanel JPResults;
 
-    public Results(){
+    public Results(int id){
         setTitle("Results");
         setSize(450, 320);
         setContentPane(JPResults);

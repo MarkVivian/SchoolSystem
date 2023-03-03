@@ -77,20 +77,20 @@
               <text value="Results"/>
             </properties>
           </component>
-          <component id="54133" class="javax.swing.JButton" binding="button3" default-binding="true">
+          <component id="54133" class="javax.swing.JButton" binding="notAvailable2Button" default-binding="true">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <text value="Not Available2"/>
             </properties>
           </component>
-          <component id="e9397" class="javax.swing.JButton" binding="button4" default-binding="true">
+          <component id="e9397" class="javax.swing.JButton" binding="notAvailable3Button" default-binding="true">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <text value="Not Available3"/>
             </properties>
           </component>
           <grid id="f5b5a" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -151,20 +151,20 @@
               </component>
             </children>
           </grid>
-          <component id="a1eea" class="javax.swing.JButton" binding="button1" default-binding="true">
+          <component id="a1eea" class="javax.swing.JButton" binding="LogOut">
             <constraints>
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <text value="LogOut"/>
             </properties>
           </component>
-          <component id="522c9" class="javax.swing.JButton" binding="button2" default-binding="true">
+          <component id="522c9" class="javax.swing.JButton" binding="notAvailableButton" default-binding="true">
             <constraints>
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <text value="Not Available"/>
             </properties>
           </component>
         </children>
