@@ -202,6 +202,18 @@ CREATE TABLE BookInfo(
 	yearPublished VARCHAR(30)
 );
 
+INSERT INTO BookInfo VALUES(
+DEFAULT,
+"Percy Jackson",
+""
+),(
+DEFAULT,
+),(
+DEFAULT,
+),(
+DEFAULT,
+);
+
 CREATE TABLE LibraryDetails(
 	TitleId INT PRIMARY KEY,
 	FOREIGN KEY(TitleId) REFERENCES BookInfo(BookId) ON DELETE CASCADE ON UPDATE CASCADE,
