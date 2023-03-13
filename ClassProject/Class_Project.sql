@@ -92,8 +92,7 @@ DEFAULT,
 "Hospitality",
 "HOP 987",
 987
-),
-(
+),(
 DEFAULT,
 4,
 "Statistics",
@@ -117,8 +116,7 @@ DEFAULT,
 "Hospitality",
 "HOP 987",
 987
-),
-(
+),(
 DEFAULT,
 3,
 "Statistics",
@@ -142,8 +140,7 @@ DEFAULT,
 "Hospitality",
 "HOP 987",
 987
-),
-(
+),(
 DEFAULT,
 2,
 "Statistics",
@@ -167,8 +164,7 @@ DEFAULT,
 "Hospitality",
 "HOP 987",
 987
-),
-(
+),(
 DEFAULT,
 1,
 "Propability",
@@ -197,28 +193,105 @@ DEFAULT,
 CREATE TABLE BookInfo(
 	BookId INT AUTO_INCREMENT PRIMARY KEY,
     BookTitle VARCHAR(30),
-    BookEdition VARCHAR(30),
-    BookVersion VARCHAR(30),
-	yearPublished VARCHAR(30)
+	yearPublished VARCHAR(30),
+    BookGroup VARCHAR(30),
+    BookCount INT
 );
 
 INSERT INTO BookInfo VALUES(
-DEFAULT,
-"Percy Jackson",
-""
+	DEFAULT,
+	"Percy Jackson",
+	"1968",
+	"Novel",
+    12
 ),(
-DEFAULT,
+	DEFAULT,
+	"Memories we lost",
+    "2002",
+    "Novel",
+    43
 ),(
-DEFAULT,
+	DEFAULT,
+	"Fundamentals of Physics",
+    "2003",
+    "Sciences",
+	9
 ),(
-DEFAULT,
+	DEFAULT,
+	"Evolution",
+	"2004",
+    "Sciences",
+    1
+),(
+	DEFAULT,
+    "Statistics And Probability",
+    "1998",
+    "Maths",
+    2
+),(
+	DEFAULT,
+    "Calculus",
+    "2009",
+    "Maths",
+    5
+),(
+	DEFAULT,
+    "LeaderShip",
+    "2000",
+    "Law",
+    7
+),(
+	DEFAULT,
+	"Country Governance",
+    "2001",
+    "Law",
+    10
+),(
+	DEFAULT,
+	"Teach the new Generation",
+    "2000",
+    "Education",
+    0
+),(
+	DEFAULT,
+	"Journey of a thousand miles",
+    "1999",
+    "Education",
+    9
 );
 
 CREATE TABLE LibraryDetails(
 	TitleId INT PRIMARY KEY,
 	FOREIGN KEY(TitleId) REFERENCES BookInfo(BookId) ON DELETE CASCADE ON UPDATE CASCADE,
-    TitleCount INT,
+    StudentId INT,
+    FOREIGN KEY(StudentId) REFERENCES LoginDetails(StudentId) ON DELETE CASCADE ON UPDATE CASCADE,
     Borrowed BOOLEAN,
     Returned BOOLEAN,
-    StudentId INT
+    Overdue BOOLEAN
+);
+
+INSERT INTO LibraryDetails VALUES(
+	1,
+	3,
+    TRUE,
+    FALSE,
+    FALSE
+),(
+	2,
+    1,
+    TRUE,
+    TRUE,
+    FALSE
+),(
+	3,
+    2,
+    TRUE,
+    TRUE,
+    TRUE
+),(
+	4,
+    4,
+    TRUE,
+    TRUE,
+    FALSE
 );
